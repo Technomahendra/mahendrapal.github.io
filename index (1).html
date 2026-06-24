@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mahendra Pal | AI Data Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D2B45;
+    --teal: #0A7EA4;
+    --orange: #E8750A;
+    --light: #F0F9FF;
+    --gray: #64748B;
+    --text: #1E293B;
+    --white: #FFFFFF;
+    --chip-bg: #DBEAFE;
+    --chip-tx: #1E3A8A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F8FAFC;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--navy);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2rem; height: 60px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav-brand { color: var(--white); font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
+  .nav-brand span { color: var(--orange); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: #A9CCE3; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A4A6E 100%);
+    padding: 120px 2rem 80px;
+    text-align: center;
+  }
+  .hero-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--orange));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; font-weight: 700; color: var(--white);
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 20px rgba(10,126,164,0.4);
+  }
+  .hero h1 { color: var(--white); font-size: 2.6rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .hero .tagline { color: #A5F3FC; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .hero .sub-tagline { color: var(--orange); font-size: 0.9rem; font-weight: 500; margin-bottom: 2rem; letter-spacing: 0.5px; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 0.65rem 1.6rem; border-radius: 6px; font-weight: 600;
+    font-size: 0.88rem; text-decoration: none; cursor: pointer;
+    transition: all 0.2s; border: none;
+  }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-primary:hover { background: #C96308; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid #A9CCE3; }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* ── SECTIONS ── */
+  section { padding: 70px 2rem; max-width: 900px; margin: 0 auto; }
+  .section-title {
+    font-size: 1.4rem; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 2px;
+    border-bottom: 3px solid var(--teal); padding-bottom: 0.5rem;
+    margin-bottom: 2rem; display: inline-block;
+  }
+
+  /* ── ABOUT ── */
+  .about-box {
+    background: var(--white); border-radius: 12px;
+    padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border-left: 5px solid var(--orange);
+    font-size: 0.97rem; color: var(--text); line-height: 1.8;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0.75rem;
+  }
+  .skill-chip {
+    background: var(--chip-bg); color: var(--chip-tx);
+    border: 1.5px solid #BFDBFE; border-radius: 8px;
+    padding: 0.6rem 1rem; font-size: 0.82rem; font-weight: 600;
+    text-align: center;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-card {
+    background: var(--white); border-radius: 12px;
+    padding: 1.5rem 1.8rem; margin-bottom: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border-left: 4px solid var(--teal);
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+  .exp-role { font-weight: 700; font-size: 1rem; color: var(--navy); }
+  .exp-company { color: var(--teal); font-weight: 600; font-size: 0.9rem; margin-top: 2px; }
+  .exp-date { color: var(--gray); font-size: 0.82rem; font-style: italic; white-space: nowrap; }
+  .exp-card ul { padding-left: 1.2rem; }
+  .exp-card ul li { font-size: 0.88rem; color: var(--text); margin-bottom: 0.4rem; line-height: 1.6; }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    background: var(--white); border-radius: 12px;
+    padding: 1.3rem 1.8rem; margin-bottom: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border-left: 4px solid var(--orange);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .edu-degree { font-weight: 700; font-size: 0.97rem; color: var(--navy); }
+  .edu-institute { color: var(--gray); font-size: 0.85rem; margin-top: 3px; }
+  .edu-year { color: var(--orange); font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+
+  /* ── LANGUAGES ── */
+  .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .lang-card {
+    background: var(--white); border-radius: 10px;
+    padding: 1.2rem 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    text-align: center;
+  }
+  .lang-name { font-weight: 700; font-size: 1.1rem; color: var(--navy); margin-bottom: 0.3rem; }
+  .lang-level { color: var(--teal); font-size: 0.85rem; font-weight: 500; }
+  .lang-badge {
+    display: inline-block; background: var(--chip-bg); color: var(--chip-tx);
+    border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.75rem;
+    font-weight: 600; margin-top: 0.5rem;
+  }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: var(--navy); border-radius: 16px;
+    padding: 2.5rem; text-align: center; color: var(--white);
+  }
+  .contact-box h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .contact-box p { color: #A9CCE3; font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.2);
+    color: var(--white); padding: 0.6rem 1.4rem; border-radius: 8px;
+    text-decoration: none; font-size: 0.88rem; font-weight: 500;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { background: var(--orange); border-color: var(--orange); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0A1929; color: #64748B;
+    text-align: center; padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.9rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 50px 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">MP<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-avatar">MP</div>
+  <h1>Mahendra Pal</h1>
+  <p class="tagline">AI Data Professional &nbsp;|&nbsp; Hindi Language Specialist</p>
+  <p class="sub-tagline">AI Evaluation &nbsp;·&nbsp; Data Annotation &nbsp;·&nbsp; Quality Assurance &nbsp;·&nbsp; Remote Freelancer</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn btn-primary">Hire Me</a>
+    <a href="#experience" class="btn btn-outline">View Experience</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">About Me</div>
+  <div class="about-box">
+    I am an AI Data Professional based in Noida, India, with hands-on paid experience across multiple global AI data platforms including Outlier AI, TELUS Digital, and Appen (CrowdGen). My core expertise lies in evaluating AI-generated content — text, image, audio, and multimodal outputs — for accuracy, relevance, clarity, and overall quality using structured guidelines.<br><br>
+    I am a native Hindi speaker with advanced English proficiency (C1), enabling me to evaluate and annotate bilingual content with strong linguistic and cultural accuracy. Currently pursuing O Level (Information Technology) from NIELIT, I am building a solid technical foundation alongside my active freelance career in AI data operations.
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-title">Key Skills</div>
+  <div class="skills-grid">
+    <div class="skill-chip">AI Data Evaluation</div>
+    <div class="skill-chip">Multimodal Content Review</div>
+    <div class="skill-chip">Data Annotation & Labeling</div>
+    <div class="skill-chip">Quality Assurance (QA)</div>
+    <div class="skill-chip">Guideline Compliance</div>
+    <div class="skill-chip">Error Detection & Reporting</div>
+    <div class="skill-chip">Speech & Audio Transcription</div>
+    <div class="skill-chip">Search Relevance Rating</div>
+    <div class="skill-chip">Remote Workflow Management</div>
+    <div class="skill-chip">Hindi–English Bilingual</div>
+    <div class="skill-chip">HTML & JavaScript Basics</div>
+    <div class="skill-chip">Attention to Detail</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-title">Work Experience</div>
+
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">AI Evaluation Contributor</div>
+        <div class="exp-company">Outlier AI</div>
+      </div>
+      <div class="exp-date">Feb 2026 – Present &nbsp;|&nbsp; Remote</div>
+    </div>
+    <ul>
+      <li>Evaluated AI-generated image and multimodal content for accuracy, relevance, and quality</li>
+      <li>Assessed instruction-following and response consistency against detailed project guidelines</li>
+      <li>Identified errors and edge cases to support model training data improvement</li>
+      <li>Maintained consistent performance in a remote, time-tracked, QA-controlled workflow</li>
+    </ul>
+  </div>
+
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">AI Data Annotation Specialist</div>
+        <div class="exp-company">TELUS Digital</div>
+      </div>
+      <div class="exp-date">Sep 2025 – Feb 2026 &nbsp;|&nbsp; Remote</div>
+    </div>
+    <ul>
+      <li>Annotated and evaluated AI training data for search relevance and audio content classification</li>
+      <li>Maintained high accuracy and consistency using detailed quality rubrics</li>
+      <li>Sustained above-average quality scores over a 6-month engagement</li>
+    </ul>
+  </div>
+
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Hindi Transcription Contributor</div>
+        <div class="exp-company">Appen (CrowdGen)</div>
+      </div>
+      <div class="exp-date">Dec 2025 – Present &nbsp;|&nbsp; Remote</div>
+    </div>
+    <ul>
+      <li>Transcribed Hindi audio data for speech recognition and NLP model training</li>
+      <li>Applied native Hindi fluency to ensure linguistic accuracy in voice data annotation</li>
+      <li>Delivered consistent, guideline-compliant output in a fully asynchronous remote workflow</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-title">Education</div>
+
+  <div class="edu-card">
+    <div>
+      <div class="edu-degree">O Level — Information Technology</div>
+      <div class="edu-institute">NIELIT, Noida</div>
+    </div>
+    <div class="edu-year">2025 – Present</div>
+  </div>
+
+  <div class="edu-card">
+    <div>
+      <div class="edu-degree">Senior Secondary (Class XII) — PCM</div>
+      <div class="edu-institute">Ikra Modern Inter College, UP &nbsp;|&nbsp; UP Board</div>
+    </div>
+    <div class="edu-year">2025 &nbsp;|&nbsp; 67%</div>
+  </div>
+
+  <div class="edu-card">
+    <div>
+      <div class="edu-degree">High School (Class X)</div>
+      <div class="edu-institute">UP Board</div>
+    </div>
+    <div class="edu-year">2023 &nbsp;|&nbsp; 89%</div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="section-title">Languages</div>
+  <div class="lang-grid">
+    <div class="lang-card">
+      <div class="lang-name">Hindi</div>
+      <div class="lang-level">Native Speaker</div>
+      <div class="lang-badge">Full Professional Proficiency</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">English</div>
+      <div class="lang-level">Advanced — C1</div>
+      <div class="lang-badge">Full Professional Proficiency</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <h3>Let's Work Together</h3>
+    <p>Available for remote AI data evaluation, annotation, transcription, and QA projects worldwide.</p>
+    <div class="contact-links">
+      <a href="mailto:mahendrapal1622101@gmail.com" class="contact-link">✉ mahendrapal1622101@gmail.com</a>
+      <a href="tel:+918057215636" class="contact-link">✆ +91 8057215636</a>
+      <a href="#" class="contact-link">📍 Noida, UP, India</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Mahendra Pal &nbsp;·&nbsp; AI Data Professional &nbsp;·&nbsp; Noida, India</p>
+</footer>
+
+</body>
+</html>
